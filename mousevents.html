@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Trail Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: black;
+
+        }
+        .trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.1s linear;
+        }
+        .marq marquee{
+            color: white;
+            font-size: 40px;
+        }
+        .logo{
+            width: 100%;
+            height: auto;
+            margin: 0%;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 40%;
+
+        }
+        .logo img{
+            height: 15vh;
+        }
+        .logo .nav{
+            color: white;
+            display: flex;
+            justify-content: center;
+            font-size: 30px;
+            gap: 10%;
+            
+        }
+        .nav a{
+            color: white;
+            text-decoration: none;
+        }
+        .nav a:hover{
+            color: lightslategray;
+        }
+        .container{
+            height: auto;
+            width: 100%;
+            margin-top:1% ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title{
+            width: 100%;
+            
+            display: block;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .title img{
+            position: relative;
+            
+        }
+        .img1{
+            width: 100%;
+            display: flex;
+            justify-content: right;
+        }
+        .img1 img{
+            height: 25vh;
+            width: 80vw;
+        }
+        .img2{
+            width: 100%;
+            display: flex;
+            justify-content: left;
+            gap: 5%;
+        }
+        .img2 .one{
+            height: 25vh;
+            width: 40vw;
+        }
+        .img2 .two{
+            height: 25vh;
+            width: 20vw;
+        }
+        .img3{
+            
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .img3 img{
+            margin-left: 10%;
+            height: 25vh;
+            width: 40vw;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="marq">
+        <marquee behavior="sliding" direction="left" loop="" scrollamount="50">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias dolorem repellat reprehenderit recusandae necessitatibus nisi culpa similique omnis vero, accusamus veniam ut, porro cupiditate quae neque mollitia ex delectus optio.</marquee>
+    </div>
+    <div class="logo">
+        <img src="logo.png" alt="">
+        <div class="nav">
+            <a href="#"><h3>about</h3></a> 
+            <a href="#"><h3>work</h3></a> 
+            <a href="#"><h3>recognition</h3></a> 
+            <a href="#"><h3>contact us</h3></a> 
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">
+            <div class="img1"><img src="1.png" alt=""></div>
+            <div class="img2"><img class="one"src="2.png" alt=""><img class="two" src="2-2.png" alt=""></div>
+            <div class="img3"><img src="3.png" alt=""></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("mousemove", (event) => {
+            let trail = document.createElement("div");
+            trail.classList.add("trail");
+            document.body.appendChild(trail);
+            
+            trail.style.left = `${event.pageX}px`;
+            trail.style.top = `${event.pageY}px`;
+            
+            setTimeout(() => {
+                trail.remove();
+            }, 100);
+        });
+    </script>
+</body>
+</html>
